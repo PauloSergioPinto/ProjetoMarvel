@@ -1,0 +1,9 @@
+Os aplicativos do lado do servidor devem passar dois parâmetros além do parâmetro apikey:
+
+ts - um registro de data e hora (ou outra string longa que pode ser alterada por solicitação, por solicitação)
+
+hash - um resumo md5 do parâmetro ts, sua chave privada e sua chave pública (por exemplo, md5 (ts + privateKey + publicKey)
+
+Por exemplo, um usuário com uma chave pública de "1234" e uma chave privada de "abcd" poderia construir uma chamada válida da seguinte maneira:
+
+http://gateway.marvel.com/v1/public/comics?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150 (o valor de hash é o digest md5 de 1abcd1234)
